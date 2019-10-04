@@ -1,11 +1,13 @@
 <script>
-	export let name;
+  import { client } from './data';
+  import { setClient } from 'svelte-apollo';
+  import Launches from './Launches.svelte';
+
+  setClient(client);
 </script>
 
-<style>
-	h1 {
-		color: purple;
-	}
-</style>
+<div>
+  <h1>Launches</h1>
 
-<h1>Hello {name}!</h1>
+  <Launches />
+</div>
