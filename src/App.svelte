@@ -1,6 +1,6 @@
 <script>
-  import { client } from './data';
   import { setClient } from 'svelte-apollo';
+  import { client } from './data';
   import Launches from './Launches.svelte';
 
   setClient(client);
