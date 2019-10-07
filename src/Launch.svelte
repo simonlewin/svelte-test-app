@@ -4,14 +4,11 @@
   const { id } = launch;
   const { rocket, mission } = launch;
 
-  const backgrounds = ['galaxy', 'iss', 'space'];
+  const backgrounds = ['galaxy', 'iss', 'space', 'moon'];
 
-  const getBackgroundImage = id =>
-    `background-image: url(/assets/images/${
-      backgrounds[Number(id) % backgrounds.length]
-    }.jpg)`;
-
-  $: image = getBackgroundImage(id);
+  $: background = `background-image: url(/assets/images/${
+    backgrounds[Number(id) % backgrounds.length]
+  }.jpg)`;
 </script>
 
 <style>
@@ -20,13 +17,13 @@
     border-radius: 7px;
     margin-bottom: 24px;
     background-size: cover;
+    font-family: 'Source Sans Pro', sans-serif;
   }
 
   h3 {
     color: azure;
     font-size: 36px;
     font-weight: 600;
-    font-family: 'Source Sans Pro', sans-serif;
   }
 
   h5 {
@@ -37,7 +34,7 @@
   }
 </style>
 
-<div style={image}>
+<div style={background}>
   <h3>{mission.name}</h3>
   <h5>{rocket.name}</h5>
 </div>
