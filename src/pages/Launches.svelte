@@ -1,14 +1,16 @@
 <script>
-  import { getClient, query } from 'svelte-apollo';
   import { onMount } from 'svelte';
-  import { LAUNCHES } from '../data';
+  import { getClient, query } from 'svelte-apollo';
+
   import { Button, Header, LaunchTile } from '../components';
+
+  import { GET_LAUNCHES } from '../data/queries';
 
   const client = getClient();
 
   let launches = [];
 
-  const getLaunches = query(client, { query: LAUNCHES });
+  const getLaunches = query(client, { query: GET_LAUNCHES });
 
   onMount(async () => {
     const { data } = await $getLaunches;
