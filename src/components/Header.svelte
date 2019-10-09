@@ -1,5 +1,7 @@
 <script>
-  export let image;
+  // undefined avoids "<Header> was created without expected
+  // prop" warning
+  export let image = undefined;
 
   const avatars = ['dog-1', 'dog-2', 'dog-3'];
   const email = 'test@email.com';
