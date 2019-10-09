@@ -2,8 +2,7 @@
   import { getClient, query } from 'svelte-apollo';
   import { onMount } from 'svelte';
   import { LAUNCHES } from '../data';
-  import { Launch } from './index';
-  import { Button, Header } from '../components';
+  import { Button, Header, LaunchTile } from '../components';
 
   const client = getClient();
 
@@ -27,7 +26,7 @@
   <p>Loading...</p>
 {:else}
   {#each launches as launch}
-    <Launch {launch} />
+    <LaunchTile {launch} />
   {:else}
     <li>No launches found</li>
   {/each}
