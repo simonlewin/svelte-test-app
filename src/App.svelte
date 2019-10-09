@@ -1,13 +1,15 @@
 <script>
   import { setClient } from 'svelte-apollo';
   import { client } from './data';
-  import Launches from './Launches.svelte';
-  import Header from './Header.svelte';
+  import { Login, Pages } from './pages';
 
   setClient(client);
+
+  let isLoggedIn = true;
 </script>
 
-<div>
-  <Header />
-  <Launches />
-</div>
+{#if isLoggedIn}
+  <Pages />
+{:else}
+  <Login />
+{/if}
