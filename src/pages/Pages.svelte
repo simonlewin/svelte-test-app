@@ -1,5 +1,5 @@
 <script>
-  import { Launches } from './index';
+  import { Launch, Launches } from './index';
   import { Bar } from '../components';
 </script>
 
@@ -19,5 +19,6 @@
 <Bar />
 
 <div>
+  <Launch />
   <Launches />
 </div>
