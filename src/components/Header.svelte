@@ -1,5 +1,5 @@
 <script>
-  export let children = 'Space Explorer';
+  export let image;
 
   const avatars = ['dog-1', 'dog-2', 'dog-3'];
   const email = 'test@email.com';
@@ -21,7 +21,11 @@
   }
 
   img {
+    height: 134px;
     margin-right: calc(var(--unit) * 2.5);
+  }
+
+  img.round {
     border-radius: 50%;
   }
 
@@ -32,9 +36,15 @@
 </style>
 
 <div>
-  <img src={avatar} alt="Space dog" />
+  {#if image}
+    <img src={image} alt="Mission patch" />
+  {:else}
+    <img class="round" src={avatar} alt="Space dog" />
+  {/if}
   <div>
-    <h2>{children}</h2>
+    <h2>
+      <slot>Space Explorer</slot>
+    </h2>
     <h5>{email}</h5>
   </div>
 </div>
