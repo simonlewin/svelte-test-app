@@ -1,14 +1,10 @@
 <script>
+  import { getBackgroundImage } from '../helpers/backgrounds';
+
   export let launch = {};
 
   const { id } = launch;
   const { rocket, mission } = launch;
-
-  const backgrounds = ['galaxy', 'iss', 'space', 'moon'];
-
-  $: background = `background-image: url(/assets/images/${
-    backgrounds[Number(id) % backgrounds.length]
-  }.jpg)`;
 </script>
 
 <style>
@@ -33,7 +29,7 @@
   }
 </style>
 
-<div style={background}>
+<div style={getBackgroundImage(id)}>
   <h3>{mission.name}</h3>
   <h5>{rocket.name}</h5>
 </div>
