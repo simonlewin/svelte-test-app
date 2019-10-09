@@ -13,8 +13,7 @@
   div {
     display: flex;
     align-items: center;
-    margin-bottom: 36px;
-    font-family: 'Source Sans Pro', sans-serif;
+    margin-bottom: calc(var(--unit) * 4.5);
   }
 
   div div {
@@ -22,19 +21,13 @@
   }
 
   img {
-    margin-right: 20px;
+    margin-right: calc(var(--unit) * 2.5);
     border-radius: 50%;
   }
 
-  h2 {
-    font-size: 40px;
-  }
-
   h5 {
-    color: '#747790';
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
+    margin-top: calc(var(--unit) / 2);
+    color: var(--text-secondary);
   }
 </style>
 

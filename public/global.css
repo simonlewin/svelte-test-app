@@ -1,62 +1,62 @@
-html, body {
-	position: relative;
-	width: 100%;
-	height: 100%;
+:root {
+  --unit: 8px;
+  --primary: #220a82;
+  --secondary: #14cbc4;
+  --accent: #e535ab;
+  --background: #f7f8fa;
+  --grey: #d8d9e0;
+  --text: #343c5a;
+  --text-secondary: #747790;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 body {
-	color: #333;
-	margin: 0;
-	padding: 8px;
-	box-sizing: border-box;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: var(--background);
+  color: var(--text);
 }
 
-a {
-	color: rgb(0,100,200);
-	text-decoration: none;
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
-a:hover {
-	text-decoration: underline;
+* {
+  box-sizing: border-box;
 }
 
-a:visited {
-	color: rgb(0,80,160);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 600;
 }
 
-label {
-	display: block;
+h1 {
+  font-size: 48px;
+  line-height: 1;
 }
 
-input, button, select, textarea {
-	font-family: inherit;
-	font-size: inherit;
-	padding: 0.4em;
-	margin: 0 0 0.5em 0;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
+h2 {
+  font-size: 40px;
 }
 
-input:disabled {
-	color: #ccc;
+h3 {
+  font-size: 36px;
 }
 
-input[type="range"] {
-	height: 0;
-}
-
-button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
-}
-
-button:active {
-	background-color: #ddd;
-}
-
-button:focus {
-	border-color: #666;
+h5 {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
 }

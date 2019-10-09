@@ -12,25 +12,24 @@
 </script>
 
 <style>
+  :root {
+    --padding: calc(var(--unit) * 2);
+  }
+
   div {
-    padding: 32px 40px;
+    padding: calc(var(--unit) * 4) calc(var(--unit) * 5);
     border-radius: 7px;
-    margin-bottom: 24px;
+    color: white;
     background-size: cover;
-    font-family: 'Source Sans Pro', sans-serif;
+    background-position: center;
+    display: block;
+    height: 193px;
+    margin-top: var(--padding);
+    text-decoration: none;
   }
 
-  h3 {
-    color: azure;
-    font-size: 36px;
-    font-weight: 600;
-  }
-
-  h5 {
-    color: azure;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
+  div:not(:last-child) {
+    margin-bottom: calc(var(--padding) * 2);
   }
 </style>
 
