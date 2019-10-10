@@ -1,6 +1,6 @@
 <script>
   import { Launch, Launches } from './index';
-  import { Bar } from '../components';
+  import { Bar, Footer } from '../components';
 </script>
 
 <style>
@@ -22,3 +22,5 @@
   <Launch />
   <Launches />
 </div>
+
+<Footer />
