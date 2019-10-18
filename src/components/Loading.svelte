@@ -1,7 +1,3 @@
-<script>
-  import { draw } from 'svelte/transition';
-</script>
-
 <style>
   svg {
     width: 64px;
