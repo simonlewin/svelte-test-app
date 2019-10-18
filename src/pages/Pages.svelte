@@ -1,6 +1,6 @@
 <script>
   import { Router, Route } from 'svero';
-  import { Launch, Launches } from './index';
+  import { Cart, Launch, Launches, Profile } from './index';
   import { Bar, Footer } from '../components';
 </script>
 
@@ -23,6 +23,8 @@
   <Router>
     <Route exact path="/" component={Launches} />
     <Route exact path="/launch/:launchId" component={Launch} />
+    <Route exact path="/cart" component={Cart} />
+    <Route exact path="/profile" component={Profile} />    
   </Router>
 </div>
 
