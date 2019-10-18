@@ -14,6 +14,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     text-align: center;
+    cursor: pointer;
   }
 </style>
 
