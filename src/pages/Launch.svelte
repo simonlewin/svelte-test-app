@@ -5,10 +5,11 @@
 
   import { GET_LAUNCH_DETAILS } from '../data/queries';
 
+  export let router = {};
+
   const client = getClient();
 
-  // dummy id 
-  const launchId = 4;
+  const { launchId } = router.params;
 
   const launch = query(client, {
     query: GET_LAUNCH_DETAILS,
