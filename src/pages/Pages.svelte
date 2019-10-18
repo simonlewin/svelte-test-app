@@ -1,6 +1,6 @@
 <script>
   import { Router, Route } from 'svero';
-  import { Cart, Launch, Launches, Profile } from './index';
+  import { Cart, Launch, Launches, Profile } from './';
   import { Bar, Footer } from '../components';
 </script>
 
