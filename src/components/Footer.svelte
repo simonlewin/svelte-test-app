@@ -1,5 +1,7 @@
 <script>
+  import { Link } from 'svero';
   import { CartIcon, HomeIcon, LogoutIcon, ProfileIcon } from './icons';
+  import { MenuItem } from './';
 </script>
 
 <style>
@@ -19,34 +21,25 @@
     padding: calc(var(--unit) * 2.5);
     margin: 0 auto;
   }
-
-  div.item {
-    display: inline-block;
-    padding: 0;
-    font-size: 20px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-align: center;
-  }
 </style>
 
 <footer>
   <div>
-    <div class="item">
+    <MenuItem to="/">
       <HomeIcon />
       Home
-    </div>
-    <div class="item">
+    </MenuItem>
+    <MenuItem to="/cart">
       <CartIcon />
       Cart
-    </div>
-    <div class="item">
+    </MenuItem>
+    <MenuItem to="/profile">
       <ProfileIcon />
       Profile
-    </div>
-    <div class="item">
+    </MenuItem>
+    <MenuItem>
       <LogoutIcon />
       Logout
-    </div>
+    </MenuItem>
   </div>
 </footer>
