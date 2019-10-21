@@ -29,3 +29,16 @@ export const GET_LAUNCH_DETAILS = gql`
   }
   ${LAUNCH_TILE_DATA}
 `;
+
+export const GET_MY_TRIPS = gql`
+  query GetMyTrips {
+    me {
+      id
+      email
+      trips {
+        ...LaunchTile
+      }
+    }
+  }
+  ${LAUNCH_TILE_DATA}
+`;
