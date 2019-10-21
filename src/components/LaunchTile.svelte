@@ -1,10 +1,13 @@
 <script>
+  import { navigateTo } from 'svero';
   import { getBackgroundImage } from '../helpers/backgrounds';
 
   export let launch = {};
 
   const { id } = launch;
   const { rocket, mission } = launch;
+
+  const handleClick = () => navigateTo(`/launch/${id}`);
 </script>
 
 <style>
@@ -22,6 +25,7 @@
     height: 193px;
     margin-top: var(--padding);
     text-decoration: none;
+    cursor: pointer;
   }
 
   div:not(:last-child) {
@@ -29,7 +33,7 @@
   }
 </style>
 
-<div style={getBackgroundImage(id)}>
+<div on:click={handleClick} style={getBackgroundImage(id)}>
   <h3>{mission.name}</h3>
   <h5>{rocket.name}</h5>
 </div>
