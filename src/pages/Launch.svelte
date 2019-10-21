@@ -2,6 +2,7 @@
   import { getClient, query } from 'svelte-apollo';
 
   import { Header, LaunchDetail, Loading } from '../components';
+  import { ActionButton } from '../containers';
 
   import { GET_LAUNCH_DETAILS } from '../data/queries';
 
@@ -19,11 +20,12 @@
 
 {#await $launch}
   <Loading />
-{:then data}
-  <Header image={data.data.launch.mission.missionPatch}>
-    {data.data.launch.mission.name}
+{:then value}
+  <Header image={value.data.launch.mission.missionPatch}>
+    {value.data.launch.mission.name}
   </Header>
-  <LaunchDetail launch={data.data.launch} />
+  <LaunchDetail launch={value.data.launch} />
+  <ActionButton launch={value.data.launch} />
 {:catch error}
   <p>Something went wrong: {error.message}</p>
 {/await}
