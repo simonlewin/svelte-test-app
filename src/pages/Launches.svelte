@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import { getClient, query } from 'svelte-apollo';
 
-  import { Button, Header, LaunchTile } from '../components';
+  import { Button, Header, LaunchTile, Loading } from '../components';
 
   import { GET_LAUNCHES } from '../data/queries';
 
@@ -25,7 +25,7 @@
 <Header />
 
 {#if launches.length === 0}
-  <p>Loading...</p>
+  <Loading />
 {:else}
   {#each launches as launch}
     <LaunchTile {launch} />

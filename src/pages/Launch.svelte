@@ -1,7 +1,7 @@
 <script>
   import { getClient, query } from 'svelte-apollo';
 
-  import { Header, LaunchDetail } from '../components';
+  import { Header, LaunchDetail, Loading } from '../components';
 
   import { GET_LAUNCH_DETAILS } from '../data/queries';
 
@@ -18,7 +18,7 @@
 </script>
 
 {#await $launch}
-  <p>Loading...</p>
+  <Loading />
 {:then data}
   <Header image={data.data.launch.mission.missionPatch}>
     {data.data.launch.mission.name}
