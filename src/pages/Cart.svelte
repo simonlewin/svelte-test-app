@@ -2,6 +2,7 @@
   import { getClient, query } from 'svelte-apollo';
 
   import { Header, Loading } from '../components';
+  import { CartItem } from '../containers';
 
   import { GET_CART_ITEMS } from '../data/queries';
 
@@ -14,9 +15,9 @@
 
 {#await $getCartItems}
   <Loading />
-{:then data}
-  {#each data.data.cartItems as item}
-    {item}
+{:then value}
+  {#each value.data.cartItems as launchId}
+    <CartItem {launchId} />
   {:else}
     <p>No items in your cart</p>
   {/each}
