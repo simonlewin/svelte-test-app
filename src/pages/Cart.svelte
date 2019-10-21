@@ -2,7 +2,7 @@
   import { getClient, query } from 'svelte-apollo';
 
   import { Header, Loading } from '../components';
-  import { CartItem } from '../containers';
+  import { BookTrips, CartItem } from '../containers';
 
   import { GET_CART_ITEMS } from '../data/queries';
 
@@ -16,11 +16,14 @@
 {#await $getCartItems}
   <Loading />
 {:then value}
-  {#each value.data.cartItems as launchId}
-    <CartItem {launchId} />
+  {#if value.data.cartItems.length !== 0}
+    {#each value.data.cartItems as launchId}
+      <CartItem {launchId} />
+    {/each}
+    <BookTrips cartItems={value.data.cartItems} />
   {:else}
     <p>No items in your cart</p>
-  {/each}
+  {/if}
 {:catch error}
   <p>Something went wrong: {error.message}</p>
 {/await}
