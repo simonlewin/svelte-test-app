@@ -11,7 +11,7 @@
 
   const client = new ApolloClient({
     cache,
-    // resolvers,
+    resolvers,
     typeDefs,
     uri: 'http://localhost:4000',
   });
