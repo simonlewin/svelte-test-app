@@ -29,3 +29,9 @@ export const GET_LAUNCH_DETAILS = gql`
   }
   ${LAUNCH_TILE_DATA}
 `;
+
+export const GET_CART_ITEMS = gql`
+  query GetCartItems {
+    cartItems @client
+  }
+`;
