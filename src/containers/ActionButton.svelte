@@ -4,7 +4,7 @@
   import { Button } from '../components';
 
   import { GET_LAUNCH_DETAILS } from '../data/queries';
-  import { TOGGLE_CART } from '../data/mutations';
+  import { CANCEL_TRIP, TOGGLE_CART } from '../data/mutations';
 
   export let launch = undefined;
 
@@ -13,7 +13,7 @@
 
   const handleClick = async () => {
     await mutate(client, {
-      mutation: TOGGLE_CART,
+      mutation: isBooked ? CANCEL_TRIP: TOGGLE_CART,
       variables: { launchId: id },
       refetchQueries: [
         {
