@@ -44,3 +44,16 @@ export const GET_CART_ITEMS = gql`
     cartItems @client
   }
 `;
+
+export const GET_MY_TRIPS = gql`
+  query GetMyTrips {
+    me {
+      id
+      email
+      trips {
+        ...LaunchTile
+      }
+    }
+  }
+  ${LAUNCH_TILE_DATA}
+`;
