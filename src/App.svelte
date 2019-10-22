@@ -1,12 +1,13 @@
 <script>
   import ApolloClient from 'apollo-client';
   import { InMemoryCache } from 'apollo-cache-inmemory';
-  import { HttpLink } from "apollo-link-http";
-  import { setClient } from 'svelte-apollo';
+  import { HttpLink } from 'apollo-link-http';
+  import { setClient, query } from 'svelte-apollo';
 
   import { Login, Pages } from './pages';
 
   import { resolvers, typeDefs } from './resolvers';
+  import { IS_LOGGED_IN } from './data/queries';
 
   const cache = new InMemoryCache();
 
@@ -28,17 +29,22 @@
 
   cache.writeData({
     data: {
+      isLoggedIn: !!localStorage.getItem('token'),
       cartItems: [],
     },
   });
 
   setClient(client);
 
-  let isLoggedIn = true;
+  const isLoggedIn = query(client, {
+    query: IS_LOGGED_IN,
+  });
 </script>
 
-{#if isLoggedIn}
-  <Pages />
-{:else}
-  <Login />
-{/if}
+{#await isLoggedIn then value}
+  {#if value.isLoggedIn}
+    <Pages />
+  {:else}
+    <Login />
+  {/if}
+{/await}

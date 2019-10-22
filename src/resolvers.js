@@ -3,6 +3,7 @@ import { GET_CART_ITEMS } from './data/queries';
 
 export const typeDefs = gql`
   extend type Query {
+    isLoggedIn: Boolean!
     cartItems: [ID!]!
   }
 
