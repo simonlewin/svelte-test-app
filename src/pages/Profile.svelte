@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
   import { getClient, query } from 'svelte-apollo';
 
   import { Header, LaunchTile, Loading } from '../components';
@@ -8,24 +7,24 @@
 
   const client = getClient();
 
-  let trips = [];
-
-  const getTrips = query(client, { query: GET_MY_TRIPS });
-
-  onMount(async () => {
-    const { data } = await $getTrips;
-    trips = data.me.trips;
+  const getTrips = query(client, {
+    query: GET_MY_TRIPS,
+    fetchPolicy: 'network-only',
   });
 </script>
 
 <Header>My Trips</Header>
 
-{#if trips.length === 0}
+{#await $getTrips}
   <Loading />
-{:else}
-  {#each trips as launch}
-    <LaunchTile {launch} />
+{:then value}
+  {#if value.data.me.trips.length !== 0}
+    {#each value.data.me.trips as launch}
+      <LaunchTile {launch} />
+    {/each}
   {:else}
-    <p>>You haven't booked any trips</p>
-  {/each}
-{/if}
+    <p>You haven't booked any trips</p>
+  {/if}
+{:catch error}
+  <p>Something went wrong: {error.message}</p>
+{/await}
