@@ -41,8 +41,8 @@
   });
 </script>
 
-{#await isLoggedIn then value}
-  {#if value.isLoggedIn}
+{#await $isLoggedIn then value}
+  {#if value.data.isLoggedIn}
     <Pages />
   {:else}
     <Login />
