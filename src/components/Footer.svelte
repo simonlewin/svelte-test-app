@@ -1,7 +1,10 @@
 <script>
   import { Link } from 'svero';
-  import { CartIcon, HomeIcon, LogoutIcon, ProfileIcon } from './icons';
+
   import { MenuItem } from './';
+  import { LogoutButton } from '../containers';
+
+  import { CartIcon, HomeIcon, ProfileIcon } from './icons';
 </script>
 
 <style>
@@ -38,7 +41,7 @@
       Profile
     </MenuItem>
     <MenuItem>
-      <LogoutIcon />
+      <LogoutButton />
       Logout
     </MenuItem>
   </div>
