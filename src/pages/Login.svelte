@@ -1,7 +1,7 @@
 <script>
   import { getClient, mutate } from 'svelte-apollo';
 
-  import { Loading, LoginForm } from '../components';
+  import { LoginForm } from '../components';
 
   import { LOGIN_USER } from '../data/mutations';
 

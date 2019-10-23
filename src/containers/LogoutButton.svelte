@@ -1,7 +1,6 @@
 <script>
   import { getClient } from 'svelte-apollo';
 
-  import { Button } from '../components';
   import { LogoutIcon } from '../components/icons';
 
   const client = getClient();
