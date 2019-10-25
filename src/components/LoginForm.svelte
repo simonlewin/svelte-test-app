@@ -15,6 +15,7 @@
     flex-direction: column;
     align-items: center;
     flex-grow: 1;
+    min-height: 100%;
     padding-bottom: calc(var(--unit) * 6);
     color: white;
     background-color: var(--primary);
