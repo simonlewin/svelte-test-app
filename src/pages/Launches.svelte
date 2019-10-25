@@ -9,6 +9,7 @@
 
   const launches = query(client, { query: GET_LAUNCHES });
 
+  // TODO
   const handleClick = ({ type }) => {
     console.log(type);
   };

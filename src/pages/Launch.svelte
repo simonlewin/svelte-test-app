@@ -6,7 +6,7 @@
 
   import { GET_LAUNCH_DETAILS } from '../data/queries';
 
-  export let launchId = null;
+  export let launchId;
   export let location = undefined;
 
   const client = getClient();
