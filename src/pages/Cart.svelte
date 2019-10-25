@@ -11,11 +11,10 @@
   const getCartItems = query(client, { query: GET_CART_ITEMS });
 </script>
 
-<Header>My Cart</Header>
-
 {#await $getCartItems}
   <Loading />
 {:then value}
+  <Header>My Cart</Header>
   {#if value.data.cartItems.length !== 0}
     {#each value.data.cartItems as launchId}
       <CartItem {launchId} />

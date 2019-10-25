@@ -8,6 +8,8 @@
 
 <style>
   div {
+    flex-grow: 1;
+    width: 0;
     display: inline-block;
     padding: 0;
     font-size: 20px;

@@ -20,6 +20,7 @@
 
   div div {
     display: inline-block;
+    margin-bottom: 0;
   }
 
   img {

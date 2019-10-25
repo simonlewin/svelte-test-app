@@ -15,11 +15,10 @@
   };
 </script>
 
-<Header />
-
 {#await $launches}
   <Loading />
 {:then value}
+  <Header />
   {#each value.data.launches.launches as launch}
     <LaunchTile {launch} />
   {:else}

@@ -12,6 +12,7 @@
     flex-direction: column;
     flex-grow: 1;
     width: 100%;
+    min-height: 100%;
     max-width: 600px;
     margin: 0 auto;
     padding: calc(var(--unit) * 3);
