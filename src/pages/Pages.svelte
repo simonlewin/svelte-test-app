@@ -1,6 +1,8 @@
 <script>
-  import { Router, Route } from 'svero';
+  import { Router, Route } from 'svelte-routing';
+
   import { Cart, Launch, Launches, Profile } from './';
+
   import { Bar, Footer } from '../components';
 </script>
 
@@ -21,10 +23,10 @@
 
 <div>
   <Router>
-    <Route exact path="/" component={Launches} />
-    <Route exact path="/launch/:launchId" component={Launch} />
-    <Route exact path="/cart" component={Cart} />
-    <Route exact path="/profile" component={Profile} />    
+    <Route path="/cart" component={Cart} />
+    <Route path="/profile" component={Profile} />
+    <Route path="/launch/:launchId" component={Launch} />
+    <Route path="/" component={Launches} />
   </Router>
 </div>
 
