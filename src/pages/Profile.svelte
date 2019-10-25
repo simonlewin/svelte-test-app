@@ -13,11 +13,10 @@
   });
 </script>
 
-<Header>My Trips</Header>
-
 {#await $getTrips}
   <Loading />
 {:then value}
+  <Header>My Trips</Header>
   {#if value.data.me.trips.length !== 0}
     {#each value.data.me.trips as launch}
       <LaunchTile {launch} />
