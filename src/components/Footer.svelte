@@ -1,6 +1,4 @@
 <script>
-  import { Link } from 'svero';
-
   import { MenuItem } from './';
   import { LogoutButton } from '../containers';
 
