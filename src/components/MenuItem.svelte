@@ -1,9 +1,9 @@
 <script>
-  import { navigateTo } from 'svero';
+  import { navigate } from 'svelte-routing';
 
   export let to = '/';
 
-  const handleClick = () => navigateTo(to);
+  const handleClick = () => navigate(to);
 </script>
 
 <style>
