@@ -1,5 +1,5 @@
 <script>
-  import { navigateTo } from 'svero';
+  import { navigate } from 'svelte-routing';
   import { getBackgroundImage } from '../helpers/backgrounds';
 
   export let launch = {};
@@ -7,7 +7,7 @@
   const { id } = launch;
   const { rocket, mission } = launch;
 
-  const handleClick = () => navigateTo(`/launch/${id}`);
+  const handleClick = () => navigate(`/launch/${id}`);
 </script>
 
 <style>
