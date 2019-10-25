@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
   import { getClient, query } from 'svelte-apollo';
 
   import { Button, Header, LaunchTile, Loading } from '../components';
@@ -8,14 +7,7 @@
 
   const client = getClient();
 
-  let launches = [];
-
-  const getLaunches = query(client, { query: GET_LAUNCHES });
-
-  onMount(async () => {
-    const { data } = await $getLaunches;
-    launches = data.launches.launches;
-  });
+  const launches = query(client, { query: GET_LAUNCHES });
 
   const handleClick = ({ type }) => {
     console.log(type);
@@ -24,14 +16,16 @@
 
 <Header />
 
-{#if launches.length === 0}
+{#await $launches}
   <Loading />
-{:else}
-  {#each launches as launch}
+{:then value}
+  {#each value.data.launches.launches as launch}
     <LaunchTile {launch} />
   {:else}
     <li>No launches found</li>
   {/each}
-{/if}
+{:catch error}
+  <p>Something went wrong: {error.message}</p>
+{/await}
 
 <Button on:click={handleClick}>Load More</Button>
