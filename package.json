@@ -16,8 +16,7 @@
     "graphql": "^14.5.8",
     "sirv-cli": "^0.4.4",
     "svelte-apollo": "^0.3.0",
-    "svelte-routing": "^1.4.0",
-    "svero": "^1.0.0"
+    "svelte-routing": "^1.4.0"
   },
   "scripts": {
     "build": "rollup -c",
