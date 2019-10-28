@@ -9,10 +9,26 @@
 
   const launches = query(client, { query: GET_LAUNCHES });
 
-  // TODO
-  const handleClick = ({ type }) => {
-    console.log(type);
-  };
+  const handleClick = ({ data }) =>
+    launches.fetchMore({
+      variables: {
+        after: data.launches.cursor,
+      },
+
+      updateQuery: (prev, { fetchMoreResult, ...rest }) => {
+        if (!fetchMoreResult) return prev;
+        return {
+          ...fetchMoreResult,
+          launches: {
+            ...fetchMoreResult.launches,
+            launches: [
+              ...prev.launches.launches,
+              ...fetchMoreResult.launches.launches,
+            ],
+          },
+        };
+      },
+    });
 </script>
 
 {#await $launches}
@@ -24,8 +40,9 @@
   {:else}
     <li>No launches found</li>
   {/each}
+  {#if value.data.launches.hasMore}
+    <Button on:click={() => handleClick(value)}>Load More</Button>
+  {/if}
 {:catch error}
   <p>Something went wrong: {error.message}</p>
 {/await}
-
-<Button on:click={handleClick}>Load More</Button>
